@@ -160,14 +160,48 @@ int main()
                 }
                 if(!found)
                 {
-                    cout<<"查無此學生資料!!!"<<endl<<endl;
+                    cout<<"查無此學生資料!!!返回主選單!"<<endl<<endl;
                 }
             }
         }
 
         else if(choice==5)
         {
+            if(students.empty())
+            {
+                cout<<"目前無學生資料!!!返回主選單!"<<endl<<endl;
+            }
+            else
+            {
+                int total=0;
+                int pass=0;
+                int fail=0;
+                int max=students[0].score;
+                int min=students[0].score;
 
+                for(const auto& s : students)
+                {
+                    total=total+s.score;
+                    if(s.score>=60)
+                    {
+                        pass=pass+1;
+                    }
+                    else
+                    {
+                        fail=fail+1;
+                    }
+
+                    max=getMax(max,s.score);
+                    min=getMin(min,s.score);
+                }
+                cout<<"======統計成績====="<<endl;
+                cout<<"全班平均: "<<(double)total/students.size()<<" 分"<<endl;
+                cout<<"最高分: "<<max<<" 分"<<endl;
+                cout<<"最低分: "<<min<<" 分"<<endl;
+                cout<<"及格人數: "<<pass<<" 人"<<endl;
+                cout<<"不及格人數: "<<fail<<" 人"<<endl;
+                cout<<endl;
+            }
         }
 
         else
