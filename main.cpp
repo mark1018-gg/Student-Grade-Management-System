@@ -129,11 +129,11 @@ int main()
                 }
                 else
                 {
-                    cout<<"輸入排序方式錯誤!返回返回主選單!";
+                    cout<<"輸入排序方式錯誤!返回主選單!"<<endl<<endl;
                 }
             }
         }
-
+        
         else if(choice==4)
         {
             if(students.empty())
