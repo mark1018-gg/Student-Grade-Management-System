@@ -33,6 +33,7 @@ int main()
 
     while(true)
     {
+        cout<<"======學生成績管理系統功能清單======"<<endl;
         cout<<"1. Add student"<<endl;
         cout<<"2. List all students"<<endl;
         cout<<"3. Sort by score"<<endl;
@@ -85,7 +86,7 @@ int main()
         {
             if(students.empty())
             {
-                cout<<"目前無學生資料!!!"<<endl<<endl;
+                cout<<"目前無學生資料!!!返回主選單!"<<endl<<endl;
             }
             else
             {
@@ -102,7 +103,7 @@ int main()
         {
             if(students.empty())
             {
-                cout<<"目前無學生資料!!!"<<endl;
+                cout<<"目前無學生資料!!!返回主選單!"<<endl<<endl;
             }
             else
             {
@@ -137,31 +138,42 @@ int main()
         {
             if(students.empty())
             {
-                cout<<"目前無學生資料!!!"<<endl;
-
+                cout<<"目前無學生資料!!!返回主選單!"<<endl<<endl;
             }
-            string searchID;
-            cout<<"輸入查詢學號 > ";
-            cin>>searchID;
-
-            bool found=false;
-
-            for(const auto& s : students)
+            else
             {
-                if(s.id==searchID)
+                string searchID;
+                cout<<"輸入查詢學號 > ";
+                cin>>searchID;
+
+                bool found=false;
+
+                for(const auto& s : students)
                 {
-                    cout<<"找到學生!"<<endl;
-                    cout<<"姓名: "<<s.name<<"成績: "<<s.score<<endl;
-                    found=true;
-                    break;
+                    if(s.id==searchID)
+                    {
+                        cout<<"找到學生資料!"<<endl;
+                        cout<<"姓名: "<<s.name<<" | 成績: "<<s.score<<endl<<endl;
+                        found=true;
+                        break;
+                    }
                 }
-            }
-            if(!found)
-            {
-                cout<<"查無此學生資料!!!"<<endl;
+                if(!found)
+                {
+                    cout<<"查無此學生資料!!!"<<endl<<endl;
+                }
             }
         }
 
+        else if(choice==5)
+        {
 
+        }
+
+        else
+        {
+            cout<<"輸入錯誤!!!請重新輸入!"<<endl<<endl;
+        }
     }
+    return(0);
 }
